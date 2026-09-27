@@ -12,7 +12,7 @@
 <body class="font-sans antialiased">
 
     <!-- CABECERA Y CARRITO -->
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800 px-6 py-4 max-w-6xl mx-auto flex justify-between items-center rounded-b-xl">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800 px-6 py-4 max-w-6xl mx-auto flex justify-between items-center rounded-b-xl">
         <div class="flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white text-sm">R2</div>
             <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Tienda Rho Two</span>
@@ -30,18 +30,18 @@
             <p class="text-sm text-slate-400 mt-2">Explora nuestra selección de hardware y herramientas digitales optimizadas para desarrolladores.</p>
         </div>
 
-        <!-- REJILLA DE PRODUCTOS -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" id="productos-container">
+        <!-- REJILLA DE PRODUCTOS (AHORA ADMITE 4 PRODUCTOS CÓMODAMENTE) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productos-container">
             <!-- Producto 1 -->
             <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
                 <div>
                     <div class="text-3xl mb-4">⌨️</div>
                     <h3 class="text-lg font-bold">Teclado Mecánico Pro R2</h3>
-                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Layout compacto 65%, switches silenciosos e iluminación RGB programable para largas jornadas de código.</p>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Layout compacto 65%, switches silenciosos e iluminación RGB programable.</p>
                 </div>
                 <div class="mt-6 flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-cyan-400">\$120.00</span>
-                    <button onclick="agregarAlCarrito('Teclado Mecánico Pro R2', 120)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                    <span class="text-xl font-extrabold text-cyan-400">\$99.99</span>
+                    <button onclick="agregarAlCarrito('Teclado Mecánico Pro R2', 99.99)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
                 </div>
             </div>
 
@@ -50,11 +50,11 @@
                 <div>
                     <div class="text-3xl mb-4">🎧</div>
                     <h3 class="text-lg font-bold">Auriculares ANC Studio</h3>
-                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Cancelación activa de ruido híbrida de alta fidelidad. Aislamiento absoluto para mantener el enfoque.</p>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Cancelación activa de ruido híbrida de alta fidelidad. Aislamiento absoluto.</p>
                 </div>
                 <div class="mt-6 flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-cyan-400">\$180.00</span>
-                    <button onclick="agregarAlCarrito('Auriculares ANC Studio', 180)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                    <span class="text-xl font-extrabold text-cyan-400">\$149.99</span>
+                    <button onclick="agregarAlCarrito('Auriculares ANC Studio', 149.99)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
                 </div>
             </div>
 
@@ -62,12 +62,25 @@
             <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
                 <div>
                     <div class="text-3xl mb-4">🖱️</div>
-                    <h3 class="text-lg font-bold">Ratón Ergonómico Inalámbrico</h3>
-                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Sensor de alta precisión ajustable a 4000 DPI. Reduce la tensión de la muñeca en proyectos exigentes.</p>
+                    <h3 class="text-lg font-bold">Ratón Ergonómico Pro</h3>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Sensor de alta precisión ajustable a 4000 DPI. Reduce la tensión de la muñeca.</p>
                 </div>
                 <div class="mt-6 flex items-center justify-between">
-                    <span class="text-xl font-extrabold text-cyan-400">\$85.00</span>
-                    <button onclick="agregarAlCarrito('Ratón Ergonómico Inalámbrico', 85)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                    <span class="text-xl font-extrabold text-cyan-400">\$64.99</span>
+                    <button onclick="agregarAlCarrito('Ratón Ergonómico Pro', 64.99)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                </div>
+            </div>
+
+            <!-- NUEVO Producto 4 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
+                <div>
+                    <div class="text-3xl mb-4">🖥️</div>
+                    <h3 class="text-lg font-bold">Monitor UltraWide 4K</h3>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Pantalla curva de 34 pulgadas con tasa de refresco de 144Hz. Espacio óptimo para programar.</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between">
+                    <span class="text-xl font-extrabold text-cyan-400">\$389.99</span>
+                    <button onclick="agregarAlCarrito('Monitor UltraWide 4K', 389.99)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
                 </div>
             </div>
         </div>
@@ -80,7 +93,6 @@
             <button onclick="toggleCarrito()" class="text-slate-400 hover:text-white font-bold text-sm">Cerrar ✕</button>
         </div>
         <div id="carrito-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto text-xs text-slate-300">
-            <!-- Los elementos agregados aparecerán aquí -->
             <p id="carrito-vacio" class="text-slate-500 text-center py-8">El carrito está vacío.</p>
         </div>
         <div class="border-t border-slate-800 pt-4 absolute bottom-6 left-6 right-6">
@@ -109,18 +121,18 @@
             const vacioText = document.getElementById('carrito-vacio');
             
             if (carrito.length === 0) {
-                vacioText.style.display = 'block';
+                if(vacioText) vacioText.style.display = 'block';
             } else {
-                vacioText.style.display = 'none';
+                if(vacioText) vacioText.style.display = 'none';
                 container.innerHTML = '';
                 let total = 0;
                 carrito.forEach((item, index) => {
-                    total += item.price || item.precio;
+                    total += item.precio;
                     container.innerHTML += `
                         <div class="flex justify-between items-center bg-slate-800/40 p-3 rounded-xl border border-slate-800/50">
                             <div>
                                 <p class="font-bold text-slate-200">${item.nombre}</p>
-                                <p class="text-cyan-400 font-medium">$${item.precio}</p>
+                                <p class="text-cyan-400 font-medium">$${item.precio.toFixed(2)}</p>
                             </div>
                             <button onclick="eliminarDelCarrito(${index})" class="text-red-400 hover:text-red-300">Quitar</button>
                         </div>
