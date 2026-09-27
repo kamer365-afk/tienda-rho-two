@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Rho Two - E-Commerce Oficial</title>
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- CABECERA Y CARRITO -->
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800 px-6 py-4 max-w-6xl mx-auto flex justify-between items-center rounded-b-xl">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white text-sm">R2</div>
+            <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Tienda Rho Two</span>
+        </div>
+        <button onclick="toggleCarrito()" class="relative bg-slate-800 border border-slate-700 hover:bg-slate-700 px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all">
+            🛒 Carrito <span id="cart-count" class="bg-cyan-500 text-slate-950 font-bold px-2 py-0.5 rounded-full text-xs">0</span>
+        </button>
+    </header>
+
+    <!-- CUERPO PRINCIPAL -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <span class="text-xs font-semibold tracking-widest text-cyan-400 uppercase bg-cyan-500/10 border border-cyan-500/20 px-3 py-1 rounded-full">Catálogo Digital 2026</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mt-4 bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent">Productos Exclusivos</h1>
+            <p class="text-sm text-slate-400 mt-2">Explora nuestra selección de hardware y herramientas digitales optimizadas para desarrolladores.</p>
+        </div>
+
+        <!-- REJILLA DE PRODUCTOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" id="productos-container">
+            <!-- Producto 1 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
+                <div>
+                    <div class="text-3xl mb-4">⌨️</div>
+                    <h3 class="text-lg font-bold">Teclado Mecánico Pro R2</h3>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Layout compacto 65%, switches silenciosos e iluminación RGB programable para largas jornadas de código.</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between">
+                    <span class="text-xl font-extrabold text-cyan-400">\$120.00</span>
+                    <button onclick="agregarAlCarrito('Teclado Mecánico Pro R2', 120)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
+                <div>
+                    <div class="text-3xl mb-4">🎧</div>
+                    <h3 class="text-lg font-bold">Auriculares ANC Studio</h3>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Cancelación activa de ruido híbrida de alta fidelidad. Aislamiento absoluto para mantener el enfoque.</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between">
+                    <span class="text-xl font-extrabold text-cyan-400">\$180.00</span>
+                    <button onclick="agregarAlCarrito('Auriculares ANC Studio', 180)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700/60 transition-all">
+                <div>
+                    <div class="text-3xl mb-4">🖱️</div>
+                    <h3 class="text-lg font-bold">Ratón Ergonómico Inalámbrico</h3>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">Sensor de alta precisión ajustable a 4000 DPI. Reduce la tensión de la muñeca en proyectos exigentes.</p>
+                </div>
+                <div class="mt-6 flex items-center justify-between">
+                    <span class="text-xl font-extrabold text-cyan-400">\$85.00</span>
+                    <button onclick="agregarAlCarrito('Ratón Ergonómico Inalámbrico', 85)" class="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-xs hover:opacity-90 transition-all">Añadir</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PANEL LATERAL DEL CARRITO -->
+    <div id="carrito-sidebar" class="fixed top-0 right-0 h-full w-80 bg-slate-900 border-l border-slate-800 shadow-2xl p-6 transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+            <h2 class="font-bold text-lg">Tu Carrito</h2>
+            <button onclick="toggleCarrito()" class="text-slate-400 hover:text-white font-bold text-sm">Cerrar ✕</button>
+        </div>
+        <div id="carrito-items" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto text-xs text-slate-300">
+            <!-- Los elementos agregados aparecerán aquí -->
+            <p id="carrito-vacio" class="text-slate-500 text-center py-8">El carrito está vacío.</p>
+        </div>
+        <div class="border-t border-slate-800 pt-4 absolute bottom-6 left-6 right-6">
+            <div class="flex justify-between font-bold text-sm mb-4">
+                <span>Total:</span>
+                <span id="carrito-total" class="text-cyan-400">\$0.00</span>
+            </div>
+            <button onclick="alert('¡Simulación de Compra Exitosa!')" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold rounded-xl text-sm shadow-lg shadow-cyan-500/10 hover:opacity-95 transition-all">Procesar Pago</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERACCIÓN -->
+    <script>
+        let carrito = [];
+        function toggleCarrito() {
+            const sidebar = document.getElementById('carrito-sidebar');
+            sidebar.classList.toggle('translate-x-full');
+        }
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            actualizarCarrito();
+        }
+        function actualizarCarrito() {
+            document.getElementById('cart-count').innerText = carrito.length;
+            const container = document.getElementById('carrito-items');
+            const vacioText = document.getElementById('carrito-vacio');
+            
+            if (carrito.length === 0) {
+                vacioText.style.display = 'block';
+            } else {
+                vacioText.style.display = 'none';
+                container.innerHTML = '';
+                let total = 0;
+                carrito.forEach((item, index) => {
+                    total += item.price || item.precio;
+                    container.innerHTML += `
+                        <div class="flex justify-between items-center bg-slate-800/40 p-3 rounded-xl border border-slate-800/50">
+                            <div>
+                                <p class="font-bold text-slate-200">${item.nombre}</p>
+                                <p class="text-cyan-400 font-medium">$${item.precio}</p>
+                            </div>
+                            <button onclick="eliminarDelCarrito(${index})" class="text-red-400 hover:text-red-300">Quitar</button>
+                        </div>
+                    `;
+                });
+                document.getElementById('carrito-total').innerText = `$${total.toFixed(2)}`;
+            }
+        }
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarrito();
+            if(carrito.length === 0) {
+                document.getElementById('carrito-items').innerHTML = '<p id="carrito-vacio" class="text-slate-500 text-center py-8">El carrito está vacío.</p>';
+                document.getElementById('carrito-total').innerText = '\$0.00';
+            }
+        }
+    </script>
+</body>
+</html>
